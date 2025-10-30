@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Age Calculator</title>
+	<style>
+    body{ font-family:Arial,sans-serif; background:#f0f4f9;display:flex;justify-content:center;align-items:center;height:100vh;margin:0; }
+
+    .container{ background:#fff;padding:30px;border-radius:15px;box-shadow:0 4px 10px rgba(0, 0, 0, 0.15);text-align:center;max-width:400px;width:100%; }
+
+    h2{margin-bottom: 20px;color: #333;}
+
+    input[type="date"]{padding: 10px;width: 80%;border: 2px solid #ddd;border-radius: 8px;font-size: 16px;margin-bottom: 20px;}
+
+    button{padding: 10px 20px;background: #007bff;color: #fff;border: none; border-radius: 8px;font-size: 16px;cursor: pointor;transition: 0.3s;}
+
+    button:hover{background: #0056b3;}
+
+    .result{margin-top: 20px;font-size: 18px;color:#444;}
+</style>
+</head>
+<body>
+	 <div class="container">
+	 	<h2>GEITS-Age Calculator</h2>
+	 	<input type="date" id="dob">
+	 	<br>
+	 	<button onclick="calculateAge()">Calculate Age</button>
+	 	<div class="result" id="result"></div></div>
+
+	 	<script>
+         function calculateAge()
+         { 
+          let dob=document.getElementById("dob").value;
+          if (dob==="")
+          {
+           document.getElementById("result").innerHTML="Please select your date of birth!";
+           return;
+          }
+           let dobDate= new Date(dob);
+           let today= new Date();
+
+
+          let years=today.getFullYear()-dobDate.getFullYear();
+
+
+          let months=today.getMonth()-dobDate.getMonth();
+
+
+          let days=today.getDate()-dobDate.getDate();
+
+			
+          if(days<0)
+          {
+            months--;
+            days+=new 
+            Date(today.getFullYear(),
+            	today.getMonth(),0).getDate();
+           
+
+          }
+
+          if(months<0)
+          {
+           years--;
+           months+=12;
+          }
+          if(months==0 && days==0)
+          {
+           document.getElementById("result").innerHTML="You are "+years+" old.<br> Woohoo! It's your Birthday<br> HAPPY BIRTHDAY!"
+          }
+          else
+          {
+           //document.getElementById("result").innerHTML='You are<b>${years}</b>years,<b>${months}</b>months,and<b>${days}</b>days old.';
+			document.getElementById("result").innerHTML="You are "+years+" years, "+months+" months,and "+days+" days old.";
+            }
+         }
+
+
+
+
+
+
+
+
+	 	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</style>
+</head>
+
+
+
+</body>
+</html>
